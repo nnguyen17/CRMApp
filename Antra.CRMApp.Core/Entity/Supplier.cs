@@ -8,17 +8,21 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Antra.CRMApp.Core.Entity
 {
-    public class Customer
+    public class Supplier
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Name is required")]
+        [Required(ErrorMessage = "Company Name is required")]
         [Column(TypeName = "varchar(50)")]
-        public string Name { get; set; }
+        public string CompanyName { get; set; }
 
-        [Required(ErrorMessage = "Title is required")]
+        [Required(ErrorMessage = "Contact Name is required")]
         [Column(TypeName = "varchar(50)")]
-        public string Title { get; set; }
+        public string ContactName { get; set; }
+
+        [Required(ErrorMessage = "Contact Title is required")]
+        [Column(TypeName = "varchar(50)")]
+        public string ContactTitle { get; set; }
 
         [Required(ErrorMessage = "Address is required")]
         [Column(TypeName = "varchar(50)")]
@@ -34,7 +38,7 @@ namespace Antra.CRMApp.Core.Entity
 
         [Required(ErrorMessage = "Postal Code is required")]
         [Column(TypeName = "varchar(50)")]
-        public string PostalCode { get; set; }
+        public int PostalCode { get; set; }
 
         [Required(ErrorMessage = "Country is required")]
         [Column(TypeName = "varchar(50)")]
@@ -43,5 +47,6 @@ namespace Antra.CRMApp.Core.Entity
         [Required(ErrorMessage = "Phone is required")]
         [Column(TypeName = "varchar(50)")]
         public string Phone { get; set; }
+
     }
 }
