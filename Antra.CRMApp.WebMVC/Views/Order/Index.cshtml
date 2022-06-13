@@ -1,0 +1,19 @@
+﻿@model IEnumerable<OrderModel>
+<a asp-action="Create" asp-controller="Order" class="btn bg-success" >Add Order</a>
+<table class="table table-striped">
+  <thead>
+      <tr>
+          <th>Id</th>
+      </tr>
+  </thead>
+  <tbody>
+      @foreach(var m in Model)
+        {
+            <tr>
+                <td>@m.Id</td>
+                <td><a asp-action="Edit" asp-controller="Order" asp-route-id="@m.Id" class="btn btn-primary">Edit</a></td>
+                <td><a class="btn bg-danger" asp-action="Delete" asp-controller="Order" asp-route-id="@m.Id">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

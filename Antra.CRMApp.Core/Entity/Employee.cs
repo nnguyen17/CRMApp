@@ -12,60 +12,46 @@ namespace Antra.CRMApp.Core.Entity
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "First Name is required")]
-        [Column(TypeName = "varchar(50)")]
+        [Required, Column(TypeName = "varchar")]
+        [MaxLength(20)]
         public string FirstName { get; set; }
 
-        [Required(ErrorMessage = "Last Name is required")]
-        [Column(TypeName = "varchar(50)")]
+        [Required, Column(TypeName = "varchar")]
+        [MaxLength(20)]
         public string LastName { get; set; }
 
-        [Required(ErrorMessage = "Title is required")]
-        [Column(TypeName = "varchar(50)")]
+        [Required, Column(TypeName = "varchar")]
+        [MaxLength(50)]
         public string Title { get; set; }
 
-        [Required(ErrorMessage = "Title of Courstesy is required")]
-        [Column(TypeName = "varchar(50)")]
-        public string TitleofCourstesy { get; set; }
-
-        [Required(ErrorMessage = "Birth Date is required")]
-        [Column(TypeName = "datetime")]
+        [Required, Column(TypeName = "varchar")]
+        [MaxLength(5)]
+        public string TitleOfCourtesy { get; set; }
         public DateTime BirthDate { get; set; }
-
-        [Required(ErrorMessage = "Hire Date is required")]
-        [Column(TypeName = "datetime")]
         public DateTime HireDate { get; set; }
 
-        [Required(ErrorMessage = "Address is required")]
-        [Column(TypeName = "varchar(50)")]
+        [Required, Column(TypeName = "varchar")]
+        [MaxLength(80)]
         public string Address { get; set; }
 
-        [Required(ErrorMessage = "City is required")]
-        [Column(TypeName = "varchar(50)")]
-        public int City { get; set; }
-
-        [Required(ErrorMessage = "Region ID is required")]
-        [Column(TypeName = "int")]
+        [Required, Column(TypeName = "varchar")]
+        [MaxLength(20)]
+        public string City { get; set; }
         public int RegionId { get; set; }
+        public int PostalCode { get; set; }
 
-        [Required(ErrorMessage = "Postal Code is required")]
-        [Column(TypeName = "varchar(50)")]
-        public string PostalCode { get; set; }
-
-        [Required(ErrorMessage = "Country is required")]
-        [Column(TypeName = "varchar(50)")]
+        [Required, Column(TypeName = "varchar")]
+        [MaxLength(20)]
         public string Country { get; set; }
 
-        [Required(ErrorMessage = "Phone is required")]
-        [Column(TypeName = "varchar(50)")]
+        [Required, Column(TypeName = "varchar")]
+        [MaxLength(15)]
         public string Phone { get; set; }
+        public int? ReportsTo { get; set; }
 
-        [Required(ErrorMessage = "ReportsTo is required")]
-        [Column(TypeName = "int")]
-        public int ReportsTo { get; set; }
-
-        [Required(ErrorMessage = "Photo Path is required")]
-        [Column(TypeName = "varchar(50)")]
+        [Required, Column(TypeName = "varchar(max)")]
         public string PhotoPath { get; set; }
+
+        public Region Region { get; set; }
     }
 }

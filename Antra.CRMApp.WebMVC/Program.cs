@@ -1,11 +1,36 @@
+using Antra.CRMApp.Core.Contract.Repository;
+using Antra.CRMApp.Core.Contract.Service;
 using Antra.CRMApp.Infrastructure.Data;
+using Antra.CRMApp.Infrastructure.Repository;
+using Antra.CRMApp.Infrastructure.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-//dependency injection 
+//dependency injection for repository
 builder.Services.AddControllersWithViews();
 builder.Services.AddSqlServer<CrmDbContext>(builder.Configuration.GetConnectionString("OnlineCRM"));
+builder.Services.AddScoped<IEmployeeRepositoryAsync, EmployeeRepositoryAsync>();
+builder.Services.AddScoped<IRegionRepositoryAsync, RegionRepositoryAsync>();
+builder.Services.AddScoped<ICategoryRepositoryAsync, CategoryRepositoryAsync>();
+builder.Services.AddScoped<ICustomerRepositoryAsync, CustomerRepositoryAsync>();
+builder.Services.AddScoped<IOrderRepositoryAsync, OrderRepositoryAsync>();
+builder.Services.AddScoped<IProductRepositoryAsync, ProductRepositoryAsync>();
+builder.Services.AddScoped<IShipperRepositoryAsync, ShipperRepositoryAsync>();
+builder.Services.AddScoped<IVendorRepositoryAsync, VendorRepositoryAsync>();
+
+
+
+//dependency injection for services
+builder.Services.AddScoped<IEmployeeServiceAsync, EmployeeServiceAsync>();
+builder.Services.AddScoped<IRegionServiceAsync, RegionServiceAsync>();
+builder.Services.AddScoped<ICategoryServiceAsync, CategoryServiceAsync>();
+builder.Services.AddScoped<ICustomerServiceAsync, CustomerServiceAsync>();
+builder.Services.AddScoped<IOrderServiceAsync, OrderServiceAsync>();
+builder.Services.AddScoped<IProductServiceAsync, ProductServiceAsync>();
+builder.Services.AddScoped<IShipperServiceAsync, ShipperServiceAsync>();
+builder.Services.AddScoped<IVendorServiceAsync, VendorServiceAsync>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

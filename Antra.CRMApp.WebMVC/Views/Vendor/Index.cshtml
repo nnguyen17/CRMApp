@@ -1,0 +1,31 @@
+﻿@model IEnumerable<VendorModel>
+<a asp-action="Create" asp-controller="Vendor" class="btn bg-success" >Add Vendor</a>
+<table class="table table-striped">
+  <thead>
+      <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>City</th>
+          <th>Country</th>
+          <th>Email</th>
+          <th>Mobile</th>
+          <th>Active Status</th>
+      </tr>
+  </thead>
+  <tbody>
+      @foreach(var m in Model)
+        {
+            <tr>
+                <td>@m.Id</td>
+                <td>@m.Name</td>
+                <td>@m.City</td>
+                <td>@m.Country</td>
+                <td>@m.EmailId</td>
+                <td>@m.Mobile</td>
+                <td>@m.IsActive</td>
+                <td><a asp-action="Edit" asp-controller="Vendor" asp-route-id="@m.Id" class="btn btn-primary">Edit</a></td>
+                <td><a class="btn bg-danger" asp-action="Delete" asp-controller="Vendor" asp-route-id="@m.Id">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

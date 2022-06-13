@@ -12,36 +12,32 @@ namespace Antra.CRMApp.Core.Entity
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Name is required")]
-        [Column(TypeName = "varchar(50)")]
+        [Required, Column(TypeName = "varchar")]
+        [MaxLength(30)]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Title is required")]
-        [Column(TypeName = "varchar(50)")]
+        [Required, Column(TypeName = "varchar")]
+        [MaxLength(30)]
         public string Title { get; set; }
 
-        [Required(ErrorMessage = "Address is required")]
-        [Column(TypeName = "varchar(50)")]
+        [Required, Column(TypeName = "varchar")]
+        [MaxLength(80)]
         public string Address { get; set; }
 
-        [Required(ErrorMessage = "City is required")]
-        [Column(TypeName = "varchar(50)")]
+        [Required, Column(TypeName = "varchar")]
+        [MaxLength(20)]
         public string City { get; set; }
-
-        [Required(ErrorMessage = "Region ID is required")]
-        [Column(TypeName = "int")]
         public int RegionId { get; set; }
+        public int PostalCode { get; set; }
 
-        [Required(ErrorMessage = "Postal Code is required")]
-        [Column(TypeName = "varchar(50)")]
-        public string PostalCode { get; set; }
-
-        [Required(ErrorMessage = "Country is required")]
-        [Column(TypeName = "varchar(50)")]
+        [Required, Column(TypeName = "varchar")]
+        [MaxLength(20)]
         public string Country { get; set; }
 
-        [Required(ErrorMessage = "Phone is required")]
-        [Column(TypeName = "varchar(50)")]
+        [Required, Column(TypeName = "varchar")]
+        [MaxLength(15)]
         public string Phone { get; set; }
+
+        public Region Region { get; set; }
     }
 }

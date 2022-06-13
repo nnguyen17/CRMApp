@@ -12,40 +12,36 @@ namespace Antra.CRMApp.Core.Entity
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Name is required")]
-        [Column(TypeName = "varchar(50)")]
+        [Required]
+        [Column(TypeName = "varchar(30)")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Supplier ID is required")]
-        [Column(TypeName = "int")]
-        public int SypplierId { get; set; }
+        [Required]
+        public int VendorId { get; set; }
 
-        [Required(ErrorMessage = "Category ID is required")]
-        [Column(TypeName = "int")]
+        [Required]
         public int CategoryId { get; set; }
 
-        [Required(ErrorMessage = "Quantity is required")]
-        [Column(TypeName = "int")]
+        [Required]
         public int QuantityPerUnit { get; set; }
 
-        [Required(ErrorMessage = "Unit Price is required")]
-        [Column(TypeName = "decimal")]
+        [Required]
         public decimal UnitPrice { get; set; }
 
-        [Required(ErrorMessage = "UnitInStock is required")]
-        [Column(TypeName = "int")]
-        public int UnitInStock { get; set; }
+        [Required]
+        public int UnitsInStock { get; set; }
 
-        [Required(ErrorMessage = "UnitInOrder is required")]
-        [Column(TypeName = "int")]
-        public int UnitInOrder { get; set; }
+        [Required]
+        public int UnitsOnOrder { get; set; }
 
-        [Required(ErrorMessage = "Reorder Level is required")]
-        [Column(TypeName = "int")]
+        [Required]
         public int ReorderLevel { get; set; }
 
         [Required]
         public bool Discontinued { get; set; }
+
+        public Vendor Vendor { get; set; }
+        public Category Category { get; set; }
 
     }
 }
